@@ -8,20 +8,20 @@ if (isset($_SESSION['session_id'])) {
 }
 
 if (isset($_POST['login'])) {
-    $username = $_POST['username'] ?? '';
+    $email = $_POST['email'] ?? '';
     $password = $_POST['password'] ?? '';
     
-    if (empty($username) || empty($password)) {
-        $msg = 'Inserisci username e password %s';
+    if (empty($email) || empty($password)) {
+        $msg = 'Inserisci email e password %s';
     } else {
         $query = "
-            SELECT username, password
+            SELECT email, password
             FROM users
-            WHERE username = :username
+            WHERE email = :email
         ";
         
         $check = $pdo->prepare($query);
-        $check->bindParam(':username', $username, PDO::PARAM_STR);
+        $check->bindParam(':email', $email, PDO::PARAM_STR);
         $check->execute();
         
         $user = $check->fetch(PDO::FETCH_ASSOC);
@@ -31,7 +31,7 @@ if (isset($_POST['login'])) {
         } else {
             session_regenerate_id();
             $_SESSION['session_id'] = session_id();
-            $_SESSION['session_user'] = $user['username'];
+            $_SESSION['session_user'] = $user['email'];
             
             header('Location: dashboard.php');
             exit;

@@ -1,0 +1,35 @@
+html,body {
+    padding: 0;
+    margin: 0;
+    font: 14px 'Open sans', sans-serif;
+    color: rgb(51, 51, 51);
+}
+h1 {
+    margin: 0;
+    margin-bottom: 20px;
+	font-size: 24px;
+}
+h2{
+    text-align: center;
+}
+form {
+    padding: 40px;
+    background: rgb(188, 223, 117);
+    border: 4px solid rgb(7, 192, 13);
+    width: 360px;
+    margin: 30px auto;
+}
+input {
+	font: 14px 'Open Sans', sans-serif;
+    background-color: rgb(200, 250, 216);
+    padding: 6px;
+    display: block;
+	margin-bottom: 10px;
+    width: 96%;
+}
+button {
+    font: 14px 'Open Sans', sans-serif;
+    background-color: #4285f4;
+    color: white;
+    padding: 6px;
+}
